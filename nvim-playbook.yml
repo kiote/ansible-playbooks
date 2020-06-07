@@ -57,3 +57,6 @@
   - name: install tmux
     apt:
       name: tmux
+  - name: install kitty
+    apt:
+      name: kitty
