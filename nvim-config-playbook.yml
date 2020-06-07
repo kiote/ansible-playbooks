@@ -29,4 +29,5 @@
     copy:
       src: .tmux.conf
       dest: ~/.tmux.conf
- 
+  - name: tmux resurrect
+    git: repo=https://github.com/tmux-plugins/tmux-resurrect dest=~/tmux/resurrect
