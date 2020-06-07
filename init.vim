@@ -4,10 +4,11 @@ set relativenumber
 
 "plugins
 call plug#begin()
-Plug 'preservim/nerdtree'
+Plug 'airblade/vim-gitgutter'
 Plug 'elixir-editors/vim-elixir'
-Plug 'morhetz/gruvbox'
 Plug 'mileszs/ack.vim'
+Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 "nerdtree stuff
@@ -16,4 +17,11 @@ nnoremap ,l :NERDTreeFind<CR>
 
 "color scheme
 autocmd vimenter * colorscheme gruvbox
+
+" Use fontawesome icons as signs
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 

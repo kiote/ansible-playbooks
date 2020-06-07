@@ -24,3 +24,9 @@
     copy:
       src: .ackrc
       dest: ~/.ackrc
+
+  - name: copy tmux config
+    copy:
+      src: .tmux.conf
+      dest: ~/.tmux.conf
+ 
