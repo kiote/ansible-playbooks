@@ -42,3 +42,7 @@
     copy:
       src: fonts.conf
       dest: ~/.config/fontconfig/fonts.conf
+  - name: copy kitty config
+    copy:
+      src: kitty.conf
+      dest: ~/.config/kitty/kitty.conf
