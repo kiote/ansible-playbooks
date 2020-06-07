@@ -46,3 +46,15 @@
     copy:
       src: kitty.conf
       dest: ~/.config/kitty/kitty.conf
+  - name: asdf install
+    git: repo=https://github.com/asdf-vm/asdf.git dest=~/.asdf
+  - name: asdf checkout
+    shell: |
+      cd ~/.asdf && git checkout "$(git describe --abbrev=0 --tags)"
+  - name: oh-my-zsh install
+    shell: |
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  - name: copy ohmyzsh config
+    copy:
+      src: .zshrc
+      dest: ~/.zshrc

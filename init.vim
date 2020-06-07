@@ -5,9 +5,9 @@ set relativenumber
 "plugins
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
-Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+"Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'elixir-editors/vim-elixir'
-Plug 'GrzegorzKozub/vim-elixirls', { 'do': ':ElixirLsCompileSync' }
+"Plug 'GrzegorzKozub/vim-elixirls', { 'do': ':ElixirLsCompileSync' }
 Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
