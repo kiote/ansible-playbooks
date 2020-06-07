@@ -1,0 +1,26 @@
+---
+- name: configure nvim and plugins
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: install neovim plugin manager
+    shell: |
+      curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  - name: pip3 neovim
+    shell: |
+      pip3 install --user neovim
+
+  - name: create config dir
+    shell: |
+      mkdir -p ~/.config/nvim
+
+  - name: copy nvim config
+    copy:
+      src: init.vim
+      dest: ~/.config/nvim/init.vim
+
+  - name: copy ack config
+    copy:
+      src: .ackrc
+      dest: ~/.ackrc

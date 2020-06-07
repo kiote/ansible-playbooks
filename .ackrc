@@ -1,0 +1,5 @@
+# Always color, even if piping to a another program
+--color
+
+--ignore-dir=node_modules/
+--ignore-dir=deps/
