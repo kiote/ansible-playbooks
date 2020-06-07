@@ -60,3 +60,6 @@
   - name: install kitty
     apt:
       name: kitty
+  - name: npm neovim (for coc)
+    shell: |
+      npm install -g neovim
