@@ -58,3 +58,15 @@
     copy:
       src: .zshrc
       dest: ~/.zshrc
+  - name: asdf erlang plugin
+    shell: |
+      asdf plugin-add erlang
+  - name: asdf elixir plugin
+    shell: |
+      asdf plugin-add elixir
+  - name: asdf install erlang
+    shell: |
+      asdf install erlang 23.0.2
+  - name: asdf install elixir
+    shell: |
+      asdf install elixit 1.10.1
