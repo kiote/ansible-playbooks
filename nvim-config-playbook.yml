@@ -34,3 +34,11 @@
     git: repo=https://github.com/tmux-plugins/tmux-resurrect dest=~/tmux/resurrect
   - name: tmux continuum
     git: repo=https://github.com/tmux-plugins/tmux-continuum dest=~/tmux/continuum
+
+  - name: create font config dir
+    shell: |
+      mkdir -p ~/.config/fontconfig
+  - name: copy firca code config
+    copy:
+      src: fonts.conf
+      dest: ~/.config/fontconfig/fonts.conf
