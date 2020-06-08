@@ -1,6 +1,7 @@
 "general
 let g:netrw_banner = 0
 set relativenumber
+set cursorline
 
 "plugins
 call plug#begin()
@@ -63,3 +64,4 @@ endif
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 command! -nargs=0 Format :call CocAction('format') 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
