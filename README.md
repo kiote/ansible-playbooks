@@ -12,3 +12,7 @@
 }
 ```
 7. Change default shell (open kitty first): `chsh -s $(which zsh)`
+
+### Todo:
+
+kien.github.io/ctrlp.vim/#installation add to ansible
