@@ -63,3 +63,6 @@
   - name: npm neovim (for coc)
     shell: |
       npm install -g neovim
+  - name: fira code font
+    apt:
+      name: fonts-firacode
