@@ -65,3 +65,5 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 command! -nargs=0 Format :call CocAction('format') 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+" close all tabs but current
+nnoremap cat :tabonly<CR> 
