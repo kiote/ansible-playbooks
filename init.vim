@@ -60,12 +60,17 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-command! -nargs=0 Format :call CocAction('format') 
+
+" CtrlP plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " close all tabs but current
 nnoremap cat :tabonly<CR> 
+
 " wrap into quotes
 nnoremap w" ciw""<Esc>P
+
+" comments plugin
+source ~/.vcomments.vim
+nnoremap gc :call Comment()<CR>
+nnoremap gC :call Uncomment()<CR>

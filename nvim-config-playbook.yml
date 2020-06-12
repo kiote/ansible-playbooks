@@ -20,6 +20,11 @@
       src: init.vim
       dest: ~/.config/nvim/init.vim
 
+  - name: copy vim comments script
+    copy:
+      src: vcomments.vim
+      dest: ~/.vcomments.vim
+
   - name: copy ack config
     copy:
       src: .ackrc
