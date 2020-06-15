@@ -3,6 +3,7 @@ let g:netrw_banner = 0
 set relativenumber
 set cursorline
 set autoread
+au CursorHold * checktime
 
 "plugins
 call plug#begin()
