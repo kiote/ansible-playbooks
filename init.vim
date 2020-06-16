@@ -1,5 +1,6 @@
 "general
 let g:netrw_banner = 0
+let mapleader = ","
 set relativenumber
 set cursorline
 
@@ -14,6 +15,9 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 call plug#end()
+
+" edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 "nerdtree stuff
 nnoremap ,nn :NERDTreeToggle<CR>
