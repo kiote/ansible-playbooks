@@ -3,6 +3,8 @@ let g:netrw_banner = 0
 let mapleader = ","
 set relativenumber
 set cursorline
+" no swp files
+set shortmess=a
 
 "plugins
 call plug#begin()
@@ -18,8 +20,10 @@ call plug#end()
 
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" reload vimrc
+nnoremap <leader>rv :source $MYVIMRC<cr>
 
-"nerdtree stuff
+" nerdtree stuff
 nnoremap ,nn :NERDTreeToggle<CR>
 nnoremap ,l :NERDTreeFind<CR>
 
@@ -83,3 +87,12 @@ nnoremap w" ciw""<Esc>P
 source ~/.vcomments.vim
 nnoremap gc :call Comment()<CR>
 nnoremap gC :call Uncomment()<CR>
+
+" Elixir related stuff
+autocmd BufWritePost *.ex call FormatElixir()
+autocmd BufWritePost *.exs call FormatElixir()
+
+function FormatElixir()
+  :silent ! mix format
+  :silent e
+endfunction
