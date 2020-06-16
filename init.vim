@@ -2,8 +2,6 @@
 let g:netrw_banner = 0
 set relativenumber
 set cursorline
-set autoread
-au CursorHold * checktime
 
 "plugins
 call plug#begin()
@@ -20,6 +18,11 @@ call plug#end()
 "nerdtree stuff
 nnoremap ,nn :NERDTreeToggle<CR>
 nnoremap ,l :NERDTreeFind<CR>
+
+" move line down
+nnoremap <C-j> ddpk<CR>
+" move line up
+nnoremap <C-k> ddkkpk<CR>
 
 "color scheme
 autocmd vimenter * colorscheme gruvbox
