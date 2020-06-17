@@ -102,12 +102,17 @@ nnoremap gC :call Uncomment()<CR>
 autocmd BufWritePost *.ex call FormatElixir()
 autocmd BufWritePost *.exs call FormatElixir()
 
+nnoremap ctf :call InitExUnit()<CR>
+nnoremap ttf :call TestThisFile()<CR>
+
+function TestThisFile()
+  execute '!mix test ' . @%
+endfunction
+
 function FormatElixir()
   silent execute '!mix format ' . @%
   :silent e
 endfunction
-
-nnoremap ctf :call InitExUnit()<CR>
 
 function InitExUnit()
   let file_name = @%
