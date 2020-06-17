@@ -110,5 +110,5 @@ function InitExUnit()
   let final_name = final_test_dir . '/' . test_fname
   silent execute '!mkdir -p ' . final_test_dir
   silent execute '!touch ' . final_name
-  execute 'vsplit ' . final_name
+  silent execute 'vsplit ' . final_name
 endfunction
