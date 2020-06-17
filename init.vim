@@ -23,6 +23,17 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
 
+" no arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
 " nerdtree stuff
 nnoremap ,nn :NERDTreeToggle<CR>
 nnoremap ,l :NERDTreeFind<CR>
