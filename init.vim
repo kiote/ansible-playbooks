@@ -105,7 +105,7 @@ function InitExUnit()
   let full_path_list = split(test_folder, "/")
   let fname = full_path_list[-1]
   let fname_and_ext_list = split(fname, '\.')
-  let test_fname = fname_and_ext_list[0] . '_text.exs'
+  let test_fname = fname_and_ext_list[0] . '_test.exs'
   let final_test_dir = join(full_path_list[0:-2], '/')
   let final_name = final_test_dir . '/' . test_fname
   silent execute '!mkdir -p ' . final_test_dir
