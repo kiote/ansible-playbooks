@@ -104,9 +104,14 @@ autocmd BufWritePost *.exs call FormatElixir()
 
 nnoremap ctf :call InitExUnit()<CR>
 nnoremap ttf :call TestThisFile()<CR>
+nnoremap tto :call TestTagOnly()<CR>
 
 function TestThisFile()
   execute '!mix test ' . @%
+endfunction
+
+function TestTagOnly()
+  execute '!mix test --only only'
 endfunction
 
 function FormatElixir()
