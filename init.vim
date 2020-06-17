@@ -93,7 +93,7 @@ autocmd BufWritePost *.ex call FormatElixir()
 autocmd BufWritePost *.exs call FormatElixir()
 
 function FormatElixir()
-  :silent ! mix format
+  silent execute '!mix format ' . @%
   :silent e
 endfunction
 
