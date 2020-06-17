@@ -97,7 +97,7 @@ function FormatElixir()
   :silent e
 endfunction
 
-nnoremap gtt :call InitExUnit()<CR>
+nnoremap ctf :call InitExUnit()<CR>
 
 function InitExUnit()
   let file_name = @%
