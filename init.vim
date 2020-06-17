@@ -29,6 +29,10 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+" switch between splits
+nnoremap <C-l> <C-w><Right>
+nnoremap <C-h> <C-w><Left>
+
 " nerdtree stuff
 nnoremap ,nn :NERDTreeToggle<CR>
 nnoremap ,l :NERDTreeFind<CR>
