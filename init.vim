@@ -29,6 +29,11 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
 " switch between splits
 nnoremap <C-l> <C-w><Right>
 nnoremap <C-h> <C-w><Left>
