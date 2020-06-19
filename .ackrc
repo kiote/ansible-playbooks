@@ -3,3 +3,4 @@
 
 --ignore-dir=node_modules/
 --ignore-dir=deps/
+--ignore-dir=cover/
