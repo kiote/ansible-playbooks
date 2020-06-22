@@ -52,3 +52,9 @@
   - name: install app requirements
     command:
       cmd:  pip3 install -r /home/www/requirements/production.txt 
+  - name: install app requirements local
+    command:
+      cmd:  pip3 install -r /home/www/requirements/local.txt 
+  - name: collect static
+    command:
+      cmd: python3 /home/www/manage.py collectstatic
