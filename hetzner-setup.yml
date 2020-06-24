@@ -23,6 +23,7 @@
   - git:
       repo: git@github.com:FirstLawofRobotics/instagram-imposter.git
       dest: /home/www
+      force: yes
   - name: install python3 dependencies
     apt:
       name:
@@ -55,6 +56,27 @@
   - name: install app requirements local
     command:
       cmd:  pip3 install -r /home/www/requirements/local.txt 
-  - name: collect static
+  - name: install redis
+    apt:
+      name:
+        - redis-server
+  - name: redis settings
+    lineinfile:
+      path: /etc/redis/redis.conf
+      regexp: 'supervised'
+      line: supervised systemd
+  - name: restart redis
+    service:
+      name: redis
+      state: restarted
+  - name: allowed hosts
+    lineinfile:
+      path: /home/www/config/settings/local.py
+      regexp: 'ALLOWED_HOSTS'
+      line: ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "95.217.185.11"]
+  - name: python setup tools
     command:
-      cmd: python3 /home/www/manage.py collectstatic
+      cmd: python3 -m pip install --upgrade pip setuptools wheel
+  - name: install celery
+    pip:
+      name: celery
