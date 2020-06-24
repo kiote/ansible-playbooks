@@ -80,3 +80,10 @@
   - name: install celery
     pip:
       name: celery
+  - name: kill previous celery
+    shell: kill `ps -ef | grep celery | grep -v grep | awk '{print $2}'`
+    ignore_errors: true
+  - name: run celery worker
+    shell: celery worker -A config.celery_app.app -l info &
+    args:
+      chdir: /home/www
