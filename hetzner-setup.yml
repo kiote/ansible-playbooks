@@ -1,8 +1,11 @@
 ---
-- name: install nginx
+- name: setup everything
   hosts: hetzner
   remote_user: root
 
+  ##
+  # nginx
+  ##
   tasks:
   - name: install nginx
     apt:
@@ -10,11 +13,17 @@
         - nginx
       state: present
       update_cache: yes
+  ##
+  # project dir
+  ##
   - name: mkdir
     file:
       path: /home/www
       state: directory
       mode: '0755'
+  ##
+  # git
+  ##
   - name: install git
     apt:
       name:
@@ -24,6 +33,9 @@
       repo: git@github.com:FirstLawofRobotics/instagram-imposter.git
       dest: /home/www
       force: yes
+  ##
+  # python and deps
+  ##
   - name: install python3 dependencies
     apt:
       name:
@@ -43,6 +55,23 @@
         - python3.8
         - python3-pip
         - python3-setuptools
+  - name: install app requirements
+    command:
+      cmd:  pip3 install -r /home/www/requirements/production.txt 
+  - name: install app requirements local
+    command:
+      cmd:  pip3 install -r /home/www/requirements/local.txt 
+  - name: allowed hosts
+    lineinfile:
+      path: /home/www/config/settings/local.py
+      regexp: 'ALLOWED_HOSTS'
+      line: ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "95.217.185.11"]
+  - name: python setup tools
+    command:
+      cmd: python3 -m pip install --upgrade pip setuptools wheel
+  ##
+  # postgres
+  ##
   - name: install postgres
     apt:
       name: 
@@ -50,12 +79,9 @@
         - postgresql-contrib
         - python-psycopg2
         - libpq-dev
-  - name: install app requirements
-    command:
-      cmd:  pip3 install -r /home/www/requirements/production.txt 
-  - name: install app requirements local
-    command:
-      cmd:  pip3 install -r /home/www/requirements/local.txt 
+  ##
+  # redis
+  ##
   - name: install redis
     apt:
       name:
@@ -69,14 +95,9 @@
     service:
       name: redis
       state: restarted
-  - name: allowed hosts
-    lineinfile:
-      path: /home/www/config/settings/local.py
-      regexp: 'ALLOWED_HOSTS'
-      line: ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "95.217.185.11"]
-  - name: python setup tools
-    command:
-      cmd: python3 -m pip install --upgrade pip setuptools wheel
+  ##
+  # celery
+  ##
   - name: install celery
     pip:
       name: celery
