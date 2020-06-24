@@ -1,0 +1,69 @@
+---
+- name: setup
+  hosts: digitalocean
+  remote_user: deploy
+  become: yes
+
+  ##
+  # nginx
+  ##
+  tasks:
+  - name: install nginx
+    apt:
+      name:
+        - nginx
+      state: present
+      update_cache: yes
+  ##
+  # project dir
+  ##
+  - name: mkdir
+    file:
+      path: /home/www
+      state: directory
+      mode: '0755'
+  ##
+  # git
+  ##
+  - name: install git
+    apt:
+      name:
+        - git
+      state: present
+  - git:
+      repo: git@github.com:FirstLawofRobotics/company-website.git
+      dest: /home/www/company-website
+      force: yes
+  ##
+  # nginx static site
+  ##
+  - name: statis site
+    copy:
+      src: company-website.conf
+      dest: /etc/nginx/sites-available/company-website.conf
+  - name: symlink
+    file:
+      src: /etc/nginx/sites-available/company-website.conf
+      dest: /etc/nginx/sites-enabled/company-website.conf
+      state: link
+  - name: nginx restart
+    service:
+      name: nginx
+      state: restarted
+  ##
+  # lets encrypt
+  ##
+  - name: install letsencrypt
+    apt:
+      name:
+        - software-properties-common
+      update_cache: yes
+  - apt_repository:
+      repo: ppa:certbot/certbot
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: yes
+  - name: install certbot
+    apt:
+      name:
+        - python-certbot-nginx
