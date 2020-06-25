@@ -67,3 +67,10 @@
     apt:
       name:
         - python-certbot-nginx
+  - name: certbot cron renewal
+    cron:
+      name: certbot renewal
+      weekday: "2"
+      minute: "0"
+      hour: "12"
+      job: certbot renew --post-hook "systemctl reload nginx"
