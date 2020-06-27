@@ -17,6 +17,22 @@
       state: present
       update_cache: yes
   ##
+  # nginx proxy
+  ##
+  - name: config
+    copy:
+      src: instagram-imposter.conf
+      dest: /etc/nginx/sites-available/instagram-imposter.conf
+  - name: symlink
+    file:
+      src: /etc/nginx/sites-available/instagram-imposter.conf
+      dest: /etc/nginx/sites-enabled/instagram-imposter.conf
+      state: link
+  - name: nginx restart
+    service:
+      name: nginx
+      state: restarted
+  ##
   # project dir
   ##
   - name: mkdir
@@ -109,5 +125,12 @@
     ignore_errors: true
   - name: run celery worker
     shell: celery worker -A config.celery_app.app -l info -f /var/log/celery.logs &
+    args:
+      chdir: /home/www
+ ##
+ # run app
+ ##
+  - name: run imposter app
+    shell: python3 manage.py runserver 0.0.0.0:8000 &
     args:
       chdir: /home/www
