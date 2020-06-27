@@ -6,10 +6,22 @@
     REDIS_URL: redis://127.0.0.1:6379
     DATABASE_URL: postgres://imposter:imposter@127.0.0.1:5432/imposter
 
+  tasks:
+  ##
+  # UFW
+  ##
+  - name: Allow everything and enable UFW
+    ufw:
+      state: enabled
+      policy: allow
+  - name: Deny all access to port 8000
+    ufw:
+      rule: deny
+      port: '8000'
+
   ##
   # nginx
   ##
-  tasks:
   - name: install nginx
     apt:
       name:
@@ -84,7 +96,7 @@
     lineinfile:
       path: /home/www/config/settings/local.py
       regexp: 'ALLOWED_HOSTS'
-      line: ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "95.217.185.11"]
+      line: ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "imp.firstlaw.io", "www.imp.firstlaw.io"]
   - name: python setup tools
     command:
       cmd: python3 -m pip install --upgrade pip setuptools wheel
