@@ -26,6 +26,7 @@
     apt:
       name:
         - nginx
+        - apache2-utils
       state: present
       update_cache: yes
   ##
@@ -52,6 +53,11 @@
       path: /home/www
       state: directory
       mode: '0755'
+  - name: mkdir for passwords
+    file: 
+      path: /etc/apache2
+      state: directory
+      mode: '0755'
   ##
   # git
   ##
@@ -64,6 +70,10 @@
       repo: git@github.com:FirstLawofRobotics/instagram-imposter.git
       dest: /home/www
       force: yes
+  - name: run migrations
+    shell: python3 manage.py migrate
+    args:
+      chdir: /home/www
   ##
   # python and deps
   ##

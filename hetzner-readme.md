@@ -7,6 +7,7 @@ create database imposter;
 grant all privileges on database imposter to imposter;
 python3 manage.py migrate
 python3 manage.py createsuperuser 
+htpasswd -c /etc/apache2/.htpasswd user1
 ```
 
 add IP-address to settings.py ALOWED_HOSTS
