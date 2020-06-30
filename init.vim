@@ -18,6 +18,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 call plug#end()
 
+set foldmethod=syntax   
+set foldnestmax=10
+set nofoldenable
+
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " reload vimrc
