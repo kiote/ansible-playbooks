@@ -67,9 +67,17 @@
         - git
       state: present
   - git:
-      repo: git@github.com:FirstLawofRobotics/instagram-imposter.git
+      repo: git@github.com:FirstLawofRobotics/imposter2.git
       dest: /home/www
       force: yes
+  - name: tags
+    shell: git fetch --all --tags --prune
+    args:
+      chdir: /home/www
+      #  - name: checkout correct tag
+      #shell: git checkout tags/v1.1 
+      #args:
+      #chdir: /home/www
   - name: run migrations
     shell: python3 manage.py migrate
     args:
