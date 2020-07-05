@@ -1,6 +1,7 @@
 ---
 
 - include: roles/common/tasks/init_folders.yml
+- include: roles/common/tasks/create_ssh_keys.yml
 
 - name: Create init-letsencrypt from template
   template:
