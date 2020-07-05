@@ -2,8 +2,7 @@
 
 - name: checkout repo
   git: 
-    repo: https://github.com/{{ repo_name }}.git
+    repo: git@github.com:{{ repo_name }}.git
     accept_hostkey: yes
     dest: "{{ repo_folder }}/repo"
-    version: "{{ repo_branch }}"
     key_file: /home/deploy/.ssh/id_rsa

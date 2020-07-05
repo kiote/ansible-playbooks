@@ -8,7 +8,7 @@
     copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
 
   roles:
-          #- role: security
-      #- role: docker-compose
+   - role: security
+   - role: docker-compose
       #- role: nginx
-    - role: certbot
+   - role: certbot

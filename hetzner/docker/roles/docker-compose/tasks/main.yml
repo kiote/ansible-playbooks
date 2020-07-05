@@ -50,5 +50,5 @@
 - name: Copy wait.sh
   copy:
     src: wait.sh
-    dest: "{{ repo_folder }}backend/wait-for-it.sh"
+    dest: "{{ repo_folder }}/wait-for-it.sh"
     mode: a+x
