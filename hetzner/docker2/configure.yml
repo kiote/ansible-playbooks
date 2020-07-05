@@ -1,0 +1,8 @@
+---
+- hosts: hetzner-test
+  remote_user: deploy
+  vars:
+    docker_compose_version: 1.25.5
+
+  roles:
+    - role: nginx
