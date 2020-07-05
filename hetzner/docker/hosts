@@ -1,0 +1,15 @@
+[all:vars]
+ansible_become=true
+ansible_become_user=root
+env_file=../.env
+
+[hetzner-test]
+95.217.134.166
+
+[hetzner-test:vars]
+repo_name=FirstLawofRobotics/instagram-imposter
+repo_folder=/srv/imposter/
+repo_branch=main
+letsencrypt_email=robotics@firstlaw.io
+domain_name=impl2.firstlaw.io
+create_user=deploy
