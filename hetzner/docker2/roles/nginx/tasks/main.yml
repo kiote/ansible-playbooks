@@ -5,3 +5,24 @@
   service:
     name: nginx
     state: started
+- name: copy template file to remote
+  template:
+    src: templates/static-site.conf
+    dest: /etc/nginx/sites-available/static-site.conf
+  become: yes
+- name: create symlink
+  file:
+    src: /etc/nginx/sites-available/static-site.conf
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  become: yes
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes
+- name: open 80 port ufw
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
