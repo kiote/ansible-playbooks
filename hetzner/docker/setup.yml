@@ -9,6 +9,6 @@
 
   roles:
     - role: security
-      #- role: docker-compose
+    - role: docker-compose
       #- role: nginx
     - role: certbot

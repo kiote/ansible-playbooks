@@ -1,6 +1,6 @@
 ---
 
-- include: roles/common/tasks/checkout.yml
+- include: roles/common/tasks/init_folders.yml
 
 - name: Create init-letsencrypt from template
   template:

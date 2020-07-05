@@ -1,0 +1,7 @@
+---
+
+- name: init folder
+  file:
+    path: "{{ repo_folder }}"
+    state: directory
+    mode: '0755'
