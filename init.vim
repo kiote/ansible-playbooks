@@ -2,7 +2,6 @@
 let g:netrw_banner = 0
 let mapleader = ","
 set relativenumber
-set cursorline
 " no swp files
 set shortmess=a
 
@@ -57,6 +56,9 @@ nnoremap <C-k> ddkkpk<CR>
 "color scheme
 set background=light
 autocmd vimenter * colorscheme nebula
+
+set cursorline
+highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
 
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'
