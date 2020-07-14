@@ -34,12 +34,20 @@
     copy:
       src: .tmux.conf
       dest: ~/.tmux.conf
-
+  # tmux resurrect
   - name: tmux resurrect
     git: repo=https://github.com/tmux-plugins/tmux-resurrect dest=~/tmux/resurrect
   - name: tmux continuum
     git: repo=https://github.com/tmux-plugins/tmux-continuum dest=~/tmux/continuum
-
+  # kitty themes configs
+  - name: kitty themes
+    git: repo=https://github.com/dexpota/kitty-themes.git dest=~/.config/kitty/kitty-themes
+  - name: copy kitty theme: github
+    file:
+      src: ~/.config/kitty/kitty-themes/themes/Github.conf
+      dest: ~/.config/kitty/theme.conf
+      state: link
+  # kitty fonts
   - name: create font config dir
     shell: |
       mkdir -p ~/.config/fontconfig
@@ -47,15 +55,18 @@
     copy:
       src: fonts.conf
       dest: ~/.config/fontconfig/fonts.conf
+  # kitty config
   - name: copy kitty config
     copy:
       src: kitty.conf
       dest: ~/.config/kitty/kitty.conf
+  # asdf
   - name: asdf install
     git: repo=https://github.com/asdf-vm/asdf.git dest=~/.asdf
   - name: asdf checkout
     shell: |
       cd ~/.asdf && git checkout "$(git describe --abbrev=0 --tags)"
+  # ohmyzsh
   - name: oh-my-zsh install
     shell: |
       sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -63,6 +74,7 @@
     copy:
       src: .zshrc
       dest: ~/.zshrc
+  # asdf elixir and erlang
   - name: asdf erlang plugin
     shell: |
       asdf plugin-add erlang
