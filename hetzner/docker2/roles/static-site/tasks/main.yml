@@ -1,0 +1,18 @@
+---
+
+- name: gen key if not exists
+  openssh_keypair:
+    path: /home/{{ create_user }}/.ssh/id_rsa
+- name: change owner
+  file:
+    path: /home/{{ create_user }}/.ssh/id_rsa
+    owner: "{{ create_user }}"
+    group: "{{ create_user }}"
+- name: checkout repo
+  git: 
+    repo: git@github.com:FirstLawofRobotics/company-website.git
+    dest: /home/{{ create_user }}/{{ static_site_path }}
+    key_file: /home/{{ create_user }}/.ssh/id_rsa
+    force: true
+    update: true
+    accept_hostkey: true

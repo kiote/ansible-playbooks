@@ -11,5 +11,7 @@ repo_name=FirstLawofRobotics/instagram-imposter
 repo_folder=/srv/imposter/
 repo_branch=main
 letsencrypt_email=robotics@firstlaw.io
+static_site_name=firstlaw.io
 domain_name=test.imp.firstlaw.io
 create_user=deploy
+static_site_path=company-website

@@ -13,7 +13,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'elixir-editors/vim-elixir'
 "Plug 'GrzegorzKozub/vim-elixirls', { 'do': ':ElixirLsCompileSync' }
 Plug 'mileszs/ack.vim'
+" Color schemes
 Plug 'morhetz/gruvbox'
+Plug 'stillwwater/vim-nebula'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 call plug#end()
@@ -52,7 +55,8 @@ nnoremap <C-j> ddpk<CR>
 nnoremap <C-k> ddkkpk<CR>
 
 "color scheme
-autocmd vimenter * colorscheme gruvbox
+set background=light
+autocmd vimenter * colorscheme nebula
 
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'
