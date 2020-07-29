@@ -1,6 +1,6 @@
 ---
 
-- hosts: hetzner-test
+- hosts: [hetzner-test, hetzner-prod]
   remote_user: root
   vars: 
     sys_packages: ["curl", "git", "ufw"]

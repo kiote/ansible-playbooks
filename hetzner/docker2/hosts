@@ -6,7 +6,20 @@ env_file=../.env
 [hetzner-test]
 95.217.134.166
 
+[hetzner-prod]
+95.217.20.91
+
 [hetzner-test:vars]
+repo_name=FirstLawofRobotics/instagram-imposter
+repo_folder=/srv/imposter/
+repo_branch=main
+letsencrypt_email=robotics@firstlaw.io
+static_site_name=firstlaw.io
+domain_name=test.imp.firstlaw.io
+create_user=deploy
+static_site_path=company-website
+
+[hetzner-prod:vars]
 repo_name=FirstLawofRobotics/instagram-imposter
 repo_folder=/srv/imposter/
 repo_branch=main
