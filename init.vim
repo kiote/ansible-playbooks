@@ -119,9 +119,13 @@ nnoremap gC :call Uncomment()<CR>
 autocmd BufWritePost *.ex call FormatElixir()
 autocmd BufWritePost *.exs call FormatElixir()
 
+" Test stuff
 nnoremap ctf :call InitExUnit()<CR>
 nnoremap ttf :call TestThisFile()<CR>
 nnoremap tto :call TestTagOnly()<CR>
+
+" Tabs ans splits
+nnoremap tts :tab split<CR> 
 
 function TestThisFile()
   execute '!mix test ' . @%
