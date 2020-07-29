@@ -42,7 +42,7 @@
   # kitty themes configs
   - name: kitty themes
     git: repo=https://github.com/dexpota/kitty-themes.git dest=~/.config/kitty/kitty-themes
-  - name: copy kitty theme: github
+  - name: copy kitty theme github
     file:
       src: ~/.config/kitty/kitty-themes/themes/Github.conf
       dest: ~/.config/kitty/theme.conf

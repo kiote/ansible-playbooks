@@ -4,6 +4,8 @@ let mapleader = ","
 set relativenumber
 " no swp files
 set shortmess=a
+" ask about saving 
+set hidden
 
 "plugins
 call plug#begin()
