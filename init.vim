@@ -106,6 +106,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " close all tabs but current
 nnoremap cat :tabonly<CR> 
+nnoremap bnt <C-w>T<CR>
 
 " wrap into quotes
 nnoremap w" ciw""<Esc>P
