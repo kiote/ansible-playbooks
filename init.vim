@@ -1,7 +1,9 @@
 "general
 let g:netrw_banner = 0
 let mapleader = ","
-set relativenumber
+" line numbers / hybrid
+set nu
+set rnu
 " no swp files
 set shortmess=a
 " ask about saving 
