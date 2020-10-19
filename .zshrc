@@ -102,3 +102,5 @@ export PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+
+/usr/bin/setxkbmap -option "caps:swapescape"
