@@ -37,4 +37,11 @@ sudo apt install snapd
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
-# >>> install pip, install gandi plugin: https://github.com/obynio/certbot-plugin-gandi
+
+sudo certbot certonly -d greenoffice.club
+
+# add generated certs to nginx
+# Congratulations! Your certificate and chain have been saved at:
+#   /etc/letsencrypt/live/greenoffice.club/fullchain.pem
+#   Your key file has been saved at:
+#   /etc/letsencrypt/live/greenoffice.club/privkey.pem
